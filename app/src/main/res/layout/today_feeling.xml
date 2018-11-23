@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="#b7eafd">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        >
+        <ImageButton
+            android:id="@+id/analysis"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/analysis"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"/>
+        />
+        <ImageButton
+            android:layout_alignRight="@+id/analysis"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/write"></ImageButton>
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center"
+        android:layout_width="215dp"
+        android:layout_height="37dp"
+        android:background="@drawable/today_s_feeling"/>
+
+    <ImageView
+        android:layout_marginTop="30dp"
+        android:layout_width="170dp"
+        android:layout_height="169dp"
+        android:layout_gravity="center"
+        android:background="@drawable/good"/>
+    <TextView
+        android:id="@+id/feeling"
+        android:layout_marginTop="15dp"
+        android:layout_width="71dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:text="Good"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        />
+
+
+</LinearLayout>
