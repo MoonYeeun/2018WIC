@@ -148,10 +148,7 @@ public class MoodAnalysis extends Dialog implements View.OnClickListener {
         xAxis.setDrawGridLines(false);
 
 
-
     }
-
-
 
     public void onClick(View v) {
 
