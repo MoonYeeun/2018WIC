@@ -11,6 +11,9 @@ import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.CandleData;
+import com.github.mikephil.charting.data.ChartData;
+import com.github.mikephil.charting.data.DataSet;
 import com.github.mikephil.charting.data.Entry;
 
 import com.github.mikephil.charting.data.LineData;
@@ -86,36 +89,40 @@ public class MoodAnalysis extends Dialog implements View.OnClickListener {
         LineDataSet Gooddataset = new LineDataSet(Goodentries, "Good");
         Gooddataset.setAxisDependency(YAxis.AxisDependency.LEFT);
         Gooddataset.setColor(Color.YELLOW);
+        Gooddataset.setLineWidth(4);
 
-
-        LineDataSet Happydataset = new LineDataSet(Goodentries, "Happy");
+        LineDataSet Happydataset = new LineDataSet(Happyentries, "Happy");
         Happydataset.setAxisDependency(YAxis.AxisDependency.LEFT);
-        Happydataset.setColors(ColorTemplate.COLORFUL_COLORS);
         Happydataset.setColor(Color.CYAN);
+        Happydataset.setLineWidth(4);
 
-        LineDataSet Sosodataset = new LineDataSet(Goodentries, "Just fine");
+        LineDataSet Sosodataset = new LineDataSet(Sosoentries, "Just fine");
         Sosodataset.setAxisDependency(YAxis.AxisDependency.LEFT);
         Sosodataset.setColor(Color.GRAY);
+        Sosodataset.setLineWidth(4);
 
-        LineDataSet Saddataset = new LineDataSet(Goodentries, "Sad");
+        LineDataSet Saddataset = new LineDataSet(Sadentries, "Sad");
         Saddataset.setAxisDependency(YAxis.AxisDependency.LEFT);
         Saddataset.setColor(Color.BLUE);
+        Saddataset.setLineWidth(4);
 
-        LineDataSet Tireddataset = new LineDataSet(Goodentries, "Tired");
+        LineDataSet Tireddataset = new LineDataSet(Tiredentries, "Tired");
         Tireddataset.setAxisDependency(YAxis.AxisDependency.LEFT);
         Tireddataset.setColor(Color.GREEN);
+        Tireddataset.setLineWidth(4);
 
-        LineDataSet Angrydataset = new LineDataSet(Goodentries, "Angry");
+        LineDataSet Angrydataset = new LineDataSet(Angryentries, "Angry");
         Angrydataset.setAxisDependency(YAxis.AxisDependency.LEFT);
         Angrydataset.setColor(Color.RED);
+        Angrydataset.setLineWidth(4);
 
-        ArrayList<String> labels = new ArrayList<String>();
-        labels.add("");
-        labels.add("");
-        labels.add("");
-        labels.add("");
-        labels.add("");
-        labels.add("");
+//        ArrayList<String> labels = new ArrayList<String>();
+//        labels.add("");
+//        labels.add("");
+//        labels.add("");
+//        labels.add("");
+//        labels.add("");
+//        labels.add("");
 
 
 
@@ -125,8 +132,8 @@ public class MoodAnalysis extends Dialog implements View.OnClickListener {
 //        /*dataset.setDrawCubic(true); //선 둥글게 만들기
 //       dataset.setDrawFilled(true); //그래프 밑부분 색칠*/
 
-
-        List<LineDataSet> dataSets = new ArrayList<LineDataSet>();
+//
+        ArrayList<LineDataSet> dataSets = new ArrayList<LineDataSet>();
         dataSets.add(Gooddataset);
         dataSets.add(Happydataset);
         dataSets.add(Sosodataset);
@@ -134,18 +141,27 @@ public class MoodAnalysis extends Dialog implements View.OnClickListener {
         dataSets.add(Tireddataset);
         dataSets.add(Angrydataset);
 
+        ArrayList<String> xVals = new ArrayList<String>();
+        xVals.add("1.Q"); xVals.add("2.Q"); xVals.add("3.Q"); xVals.add("4.Q");
+        xVals.add("5.Q"); xVals.add("6.Q");
 
-        LineData data = new LineData(labels,dataSets);
+        lineChart.setData(new LineData(xVals,dataSets));
 
-        lineChart.setData(data);
+//        LineData data1 = new LineData(labels,Gooddataset);
+//        LineData data2 = new LineData(labels,Happydataset);
+//        LineData data3 = new LineData(labels,Sosodataset);
+//        LineData data4 = new LineData(labels,Saddataset);
+//        LineData data5 = new LineData(labels,Tireddataset);
+//        LineData data6 = new LineData(labels,Angrydataset);
+//
+//        lineChart.setData(data1);
+//        lineChart.setData(data2);
+//        lineChart.setData(data3);
+//        lineChart.setData(data4);
+//        lineChart.setData(data5);
+//        lineChart.setData(data6);
+
         lineChart.animateY(5000);
-
-        XAxis xAxis = lineChart.getXAxis();
-        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setTextSize(10f);
-        xAxis.setTextColor(Color.RED);
-        xAxis.setDrawAxisLine(true);
-        xAxis.setDrawGridLines(false);
 
 
     }
@@ -153,5 +169,6 @@ public class MoodAnalysis extends Dialog implements View.OnClickListener {
     public void onClick(View v) {
 
     }
+
 }
 
