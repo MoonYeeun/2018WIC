@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
@@ -26,6 +27,7 @@ import java.util.ArrayList;
 public class MyEmotion extends Fragment implements View.OnClickListener{
     ImageView title;
     View view;
+    TextView feeling_text;
     ImageButton good,happy,soso,sad,tired,angry,mood,analysis;
     Boolean choose = false;
     RelativeLayout current_mood,emotion;
@@ -46,6 +48,8 @@ public class MyEmotion extends Fragment implements View.OnClickListener{
         title = (ImageView)view.findViewById(R.id.title);
         mood = (ImageButton) view.findViewById(R.id.mood);
         analysis = (ImageButton)view.findViewById(R.id.analysis);
+
+        feeling_text = (TextView)view.findViewById(R.id.feeling_text);
 
         emotion = (RelativeLayout)view.findViewById(R.id.emotion);
         current_mood = (RelativeLayout)view.findViewById(R.id.current_mood);
@@ -123,21 +127,27 @@ public class MyEmotion extends Fragment implements View.OnClickListener{
             if (view.getId() == R.id.good){
                 Log.d("SELECT",choose.toString());
                 mood.setBackgroundResource(R.drawable.good);
+                feeling_text.setText("Good");
             }
             if (view.getId() == R.id.happy) {
                 mood.setBackgroundResource(R.drawable.happy);
+                feeling_text.setText("Happy");
             }
             if (view.getId() == R.id.soso) {
                 mood.setBackgroundResource(R.drawable.soso);
+                feeling_text.setText("Just fine");
             }
             if (view.getId() == R.id.sad) {
                 mood.setBackgroundResource(R.drawable.sad);
+                feeling_text.setText("Sad");
             }
             if (view.getId() == R.id.tired) {
                 mood.setBackgroundResource(R.drawable.tired);
+                feeling_text.setText("Tired");
             }
             if (view.getId() == R.id.angry) {
                 mood.setBackgroundResource(R.drawable.angry);
+                feeling_text.setText("Angry");
             }
             current_mood.setVisibility(view.VISIBLE);
             choose = true;
