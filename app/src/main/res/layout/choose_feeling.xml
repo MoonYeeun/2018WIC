@@ -23,7 +23,7 @@
             android:layout_alignRight="@+id/analysis"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginRight="70dp"
             android:background="@drawable/write"></ImageButton>
     </RelativeLayout>
 
