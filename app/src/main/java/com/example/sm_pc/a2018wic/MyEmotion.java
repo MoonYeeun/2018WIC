@@ -1,9 +1,12 @@
 package com.example.sm_pc.a2018wic;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,9 +26,12 @@ import java.util.ArrayList;
 public class MyEmotion extends Fragment implements View.OnClickListener{
     ImageView title;
     View view;
-    ImageButton good,happy,soso,sad,tired,angry,mood;
+    ImageButton good,happy,soso,sad,tired,angry,mood,analysis;
     Boolean choose = false;
     RelativeLayout current_mood,emotion;
+
+    FragmentManager fm;
+    FragmentTransaction tran;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -39,6 +45,7 @@ public class MyEmotion extends Fragment implements View.OnClickListener{
         angry = (ImageButton)view.findViewById(R.id.angry);
         title = (ImageView)view.findViewById(R.id.title);
         mood = (ImageButton) view.findViewById(R.id.mood);
+        analysis = (ImageButton)view.findViewById(R.id.analysis);
 
         emotion = (RelativeLayout)view.findViewById(R.id.emotion);
         current_mood = (RelativeLayout)view.findViewById(R.id.current_mood);
@@ -51,6 +58,7 @@ public class MyEmotion extends Fragment implements View.OnClickListener{
         tired.setOnClickListener(this);
         angry.setOnClickListener(this);
         mood.setOnClickListener(this);
+        analysis.setOnClickListener(this);
 
         return view;
 
@@ -102,6 +110,10 @@ public class MyEmotion extends Fragment implements View.OnClickListener{
             current_mood.setVisibility(View.GONE);
             emotion.setVisibility(View.VISIBLE);
             choose = false;
+        }
+        else if(view.getId() == R.id.analysis){
+            MoodAnalysis dialog = new MoodAnalysis(view.getContext());
+            dialog.show();
         }
         else{
             Log.d("choose",choose.toString());
