@@ -113,6 +113,7 @@ public class MyEmotion extends Fragment implements View.OnClickListener{
             choose = false;
             current_mood.setVisibility(View.GONE);
             emotion.setVisibility(View.VISIBLE);
+            feeling_text.setText("");
             choose = false;
         }
         else if(view.getId() == R.id.analysis){

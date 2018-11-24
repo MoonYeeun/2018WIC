@@ -12,12 +12,13 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    ImageButton home,location,qr;
+    ImageButton home,location,qr,chat;
     FragmentManager fm;
     FragmentTransaction tran;
     MyEmotion frag1;
     MyEmotion frag2;
-    MyEmotion frag3;
+    QRreader frag3;
+    ChatActivity frag4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,12 +26,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         home = (ImageButton) findViewById(R.id.home);
         location = (ImageButton) findViewById(R.id.location);
         qr = (ImageButton)findViewById(R.id.qr);
+        chat = (ImageButton)findViewById(R.id.chat);
+
         home.setOnClickListener(this);
         location.setOnClickListener(this);
         qr.setOnClickListener(this);
+        chat.setOnClickListener(this);
+
         frag1 = new MyEmotion(); //프래그먼트 객채셍성
         frag2 = new MyEmotion(); //프래그먼트 객채셍성
-        frag3 = new MyEmotion(); //프래그먼트 객채셍성
+        frag3 = new QRreader(); //프래그먼트 객채셍성
+        frag4 = new ChatActivity();
         setFrag(1); //프래그먼트 교체
     }
     @Override
@@ -44,6 +50,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.qr:
                 setFrag(2);
+                break;
+            case R.id.chat:
+                setFrag(3);
                 break;
         }
     }
@@ -61,6 +70,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case 2:
                 tran.replace(R.id.frame, frag3);  //replace의 매개변수는 (프래그먼트를 담을 영역 id, 프래그먼트 객체) 입니다.
+                tran.commit();
+                break;
+            case 3:
+                tran.replace(R.id.frame,frag4);
                 tran.commit();
                 break;
         }
