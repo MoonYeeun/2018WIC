@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#4f86c6"
+    android:background="#eeeeee"
     >
 
     <SurfaceView
@@ -26,6 +26,7 @@
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
         android:text="@string/result_text_default"
+        android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@+id/cameraPreview"
         tools:layout_editor_absoluteX="16dp"/>

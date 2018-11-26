@@ -33,4 +33,9 @@ dependencies {
     implementation 'com.github.PhilJay:MPAndroidChart:v2.1.6'
 
     implementation 'com.google.android.gms:play-services:12.0.1'
+    implementation 'com.google.android.gms:play-services-maps:12.0.1'
+    implementation 'com.google.android.gms:play-services-location:12.0.1'
+    implementation ('org.eclipse.paho:org.eclipse.paho.android.service:1.0.2') {
+        exclude module: 'support-v4'
+    }
 }
